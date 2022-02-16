@@ -1,0 +1,50 @@
+.container {
+  padding: 0 2rem;
+  li {
+    list-style-type: none;
+  }
+}
+
+.cell {
+  padding: 0 2rem;
+}
+
+.letterInput {
+  width: 58px;
+  margin-left: 15px;
+  display: inline-block;
+  border: 1px solid;
+  padding: 1rem;
+  margin: 0.3rem;
+  background-color: lightgray;
+  color: black;
+  text-transform: capitalize;
+}
+
+.letter {
+  display: inline-block;
+  border: 1px solid;
+  padding: 1rem;
+  margin: 0.3rem;
+  text-transform: capitalize;
+  background-color: lightgray;
+  color: black;
+}
+
+.correct {
+  @extend .letter;
+  background-color: green;
+  color: white;
+}
+
+.existent {
+  @extend .letter;
+  background-color: yellow;
+  color: black;
+}
+
+.notExistent {
+  @extend .letter;
+  background-color: red;
+  color: white;
+}
