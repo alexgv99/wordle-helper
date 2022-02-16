@@ -48,3 +48,8 @@
   background-color: red;
   color: white;
 }
+
+.wordList {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+}
