@@ -1,8 +1,22 @@
+$wordColumns: 5;
+
 .container {
+  display: grid;
+  grid-template-rows: 50vh 50vh;
+  grid-template-columns: minmax(600px, 1fr) 500px;
+  grid-template-areas:
+    "input patterns"
+    "words words";
   padding: 0 2rem;
   li {
     list-style-type: none;
   }
+
+  font-size: 1em;
+  font-family: "Courier New", Courier, monospace;
+  margin: auto;
+  width: 80vw;
+  max-height: 100vh;
 }
 
 .cell {
@@ -10,25 +24,28 @@
 }
 
 .letterInput {
-  width: 58px;
+  width: 38.75px;
+  height: 42.6px;
   margin-left: 15px;
   display: inline-block;
   border: 1px solid;
-  padding: 1rem;
+  padding: 0.6rem;
   margin: 0.3rem;
   background-color: lightgray;
   color: black;
   text-transform: capitalize;
+  font-size: 1em;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .letter {
   display: inline-block;
   border: 1px solid;
-  padding: 1rem;
   margin: 0.3rem;
   text-transform: capitalize;
   background-color: lightgray;
   color: black;
+  padding: 0.8rem;
 }
 
 .correct {
@@ -50,6 +67,64 @@
 }
 
 .wordList {
+  -webkit-columns: $wordColumns;
+  -moz-columns: $wordColumns;
+  columns: $wordColumns;
+  -moz-column-fill: balance;
+  column-fill: balance;
+  overflow-y: visible;
+}
+
+.input {
+  grid-area: input;
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: auto 1fr;
+
+  .innerTitle {
+    grid-column: span 2;
+  }
+
+  .toolbar {
+    padding: 10px;
+    display: flex;
+    margin: auto;
+    gap: 10px;
+
+    button {
+      padding: 0.5rem;
+      color: white;
+      font-weight: bold;
+      background-color: #9999ff;
+      border-radius: 10px;
+      border-width: 2px;
+      text-transform: capitalize;
+    }
+    .wrongSpot {
+      background-color: yellow;
+      color: black;
+      opacity: 0.6;
+    }
+    .wrightSpot {
+      background-color: green;
+      color: white;
+      opacity: 0.6;
+    }
+    .hasnt {
+      background-color: red;
+      color: white;
+      opacity: 0.6;
+    }
+  }
+}
+
+.patterns {
+  grid-area: patterns;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.words {
+  grid-area: words;
+  max-height: 60vh;
+  overflow-y: auto;
 }
